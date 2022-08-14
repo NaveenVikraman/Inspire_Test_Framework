@@ -14,5 +14,11 @@ class ReadData:
             self.data = json.loads(j.read())
         return self.data
 
+    def read_locator_json_data(self):
+        self.json_path = self.read_file_location_data()['locator_data_json']
+        with open(self.json_path, 'r') as j:
+            self.data = json.loads(j.read())
+        return self.data
+
 
 

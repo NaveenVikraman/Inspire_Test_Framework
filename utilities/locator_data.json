@@ -1,0 +1,26 @@
+{
+  "home_page": {
+    "button_new_post_id": "sort_option_new",
+    "section_post_elements_xpath": "//*[@class='post-block']",
+    "div_post_elements_description_xpath": "//*[@class='pb-readmore']"
+  },
+  "login_page": {
+    "link_sign_in_pop_up_id": "logIn",
+    "link_sign_in_with_email_xpath": "//*[@id='ins-modal-wrapper']/div/app-login-modal-container/div/app-login/div/div/p/a[1]",
+    "textbox_username_id": "email",
+    "textbox_password_id": "pw",
+    "button_login_id": "login_submit",
+    "div_login_error_id": "login_error"
+  },
+  "post_page": {
+    "img_profile_id": "avatarImage",
+    "link_goto_profile_id": "goToProfile",
+    "button_create_post_xpath": "/html/body/app-root/app-profile/div[2]/aside[1]/app-profile-info/div/div[4]/button[1]",
+    "section_journal_select_id": "journal_select",
+    "textbox_title_xpath": "//*[@id='journal-post-title-textbox']",
+    "textbox_description_xpath": "//*[@id='editor']/div[2]/div[2]/div",
+    "dropdown_privacy_id": "dropdown_wrapper",
+    "div_privacy_friends_xpath": "/html/body/app-root/app-profile/div[2]/main/div/app-create-post/app-post-form-wrapper/app-journal-post-form/div/form/div[4]/ins-custom-dropdown/div/div[2]/div[4]",
+    "button_publish_post_id": "publish-post-button"
+  }
+}

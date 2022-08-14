@@ -22,4 +22,10 @@ class LogGen:
             ])
         logger = logging.getLogger()
         logger.root.setLevel(logging.INFO)
-        return logger
+        return logger,base_log_dir
+    @staticmethod
+    def screenshotGen(base_log_dir):
+        screenshots_dir = base_log_dir +"/Screenshots/"
+        if not os.path.exists(screenshots_dir):
+            os.makedirs(screenshots_dir)
+        return screenshots_dir

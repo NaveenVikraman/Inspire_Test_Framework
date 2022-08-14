@@ -1,31 +1,50 @@
+import time
+
 from selenium import webdriver
+from utilities.readData import ReadData
 
 
 class LoginPage:
-    link_sign_in_pop_up_id = "logIn"
-    link_sign_in_with_email_xpath = '//*[@id="ins-modal-wrapper"]/div/app-login-modal-container/div/app-login/div/div/p/a[1]'
-    textbox_username_id = "email"
-    textbox_password_id = "pw"
-    button_login_id = 'login_submit'
-
+    locator_data = ReadData().read_locator_json_data()['login_page']
 
     def __init__(self, driver):
         self.driver = driver
 
     def click_sign_in(self):
-        self.driver.find_element("id",self.link_sign_in_pop_up_id).click()
-        self.driver.find_element("xpath", self.link_sign_in_with_email_xpath).click()
+        try:
+            self.driver.find_element("id", self.locator_data['link_sign_in_pop_up_id']).click()
+            self.driver.find_element("xpath", self.locator_data['link_sign_in_with_email_xpath']).click()
+            return 0, ""
+        except Exception as e:
+            return -1, str(e)
 
     def set_username(self, username):
-        self.driver.find_element("id",self.textbox_username_id).clear()
-        self.driver.find_element("id",self.textbox_username_id).send_keys(username)
+        try:
+            self.driver.find_element("id", self.locator_data['textbox_username_id']).clear()
+            self.driver.find_element("id", self.locator_data['textbox_username_id']).send_keys(username)
+            return 0, ""
+        except Exception as e:
+            return -1, str(e)
 
     def set_password(self, password):
-        self.driver.find_element("id",self.textbox_password_id).clear()
-        self.driver.find_element("id",self.textbox_password_id).send_keys(password)
+        try:
+            self.driver.find_element("id", self.locator_data['textbox_password_id']).clear()
+            self.driver.find_element("id", self.locator_data['textbox_password_id']).send_keys(password)
+            return 0, ""
+        except Exception as e:
+            return -1, str(e)
 
     def click_login(self):
-        self.driver.find_element("id",self.button_login_id).click()
+        try:
+            self.driver.find_element("id", self.locator_data['button_login_id']).click()
+            time.sleep(2)
+            return 0, ""
+        except Exception as e:
+            return -1, str(e)
 
-
-
+    def verify_login(self):
+        try:
+            login_failure = self.driver.find_element("id", self.locator_data['div_login_error_id']).text
+            return -1, login_failure
+        except:
+            return 0, ''
