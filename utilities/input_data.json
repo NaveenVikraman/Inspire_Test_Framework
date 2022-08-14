@@ -1,0 +1,9 @@
+{
+  "baseURL": "https://www.inspire.com",
+  "username": "nav.vikraman@gmail.com",
+  "password": "Inspire_Qa",
+  "title": "Inspire",
+  "screenshot_url": "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/Screenshots/",
+  "journal_title": "Hello Selenium Test World",
+  "journal_description": "I am creating this post using selenium, pytest..!"
+}
