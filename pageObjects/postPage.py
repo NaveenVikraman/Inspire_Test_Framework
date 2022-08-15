@@ -53,8 +53,11 @@ class PostPage:
                  :return: ret,err
         """
         try:
-            self.driver.find_element("xpath", self.locator_data['textbox_title_xpath']).send_keys(title)
-            return 0, ""
+            if len(title) > 0 and title != " ":
+                self.driver.find_element("xpath", self.locator_data['textbox_title_xpath']).send_keys(title)
+                return 0, ""
+            else:
+                return-1, "Title Length is short"
         except Exception as e:
             return -1, str(e)
 
@@ -64,8 +67,11 @@ class PostPage:
                  :return: ret,err
         """
         try:
-            self.driver.find_element("xpath", self.locator_data['textbox_description_xpath']).send_keys(description)
-            return 0, ""
+            if len(description) > 0:
+                self.driver.find_element("xpath", self.locator_data['textbox_description_xpath']).send_keys(description)
+                return 0, ""
+            else:
+                return -1, "Description Length is short"
         except Exception as e:
             return -1, str(e)
 

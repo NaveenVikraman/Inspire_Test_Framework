@@ -28,9 +28,12 @@ class LoginPage:
                  :return: ret,err
         """
         try:
-            self.driver.find_element("id", self.locator_data['textbox_username_id']).clear()
-            self.driver.find_element("id", self.locator_data['textbox_username_id']).send_keys(username)
-            return 0, ""
+            if len(username) > 0 and username != " ":
+                self.driver.find_element("id", self.locator_data['textbox_username_id']).clear()
+                self.driver.find_element("id", self.locator_data['textbox_username_id']).send_keys(username)
+                return 0, ""
+            else:
+                return -1, "Username Length is short"
         except Exception as e:
             return -1, str(e)
 
@@ -40,9 +43,13 @@ class LoginPage:
                  :return: ret,err
         """
         try:
-            self.driver.find_element("id", self.locator_data['textbox_password_id']).clear()
-            self.driver.find_element("id", self.locator_data['textbox_password_id']).send_keys(password)
-            return 0, ""
+            if len(password) > 0 and password != " ":
+                self.driver.find_element("id", self.locator_data['textbox_password_id']).clear()
+                self.driver.find_element("id", self.locator_data['textbox_password_id']).send_keys(password)
+                return 0, ""
+            else:
+                return -1, "Password Length is short"
+
         except Exception as e:
             return -1, str(e)
 
