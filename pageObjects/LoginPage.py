@@ -11,6 +11,10 @@ class LoginPage:
         self.driver = driver
 
     def click_sign_in(self):
+        """
+                  click_sign_in(): To click sign_in button  and to click the signing by email button
+                  :return: ret,err
+        """
         try:
             self.driver.find_element("id", self.locator_data['link_sign_in_pop_up_id']).click()
             self.driver.find_element("xpath", self.locator_data['link_sign_in_with_email_xpath']).click()
@@ -19,6 +23,10 @@ class LoginPage:
             return -1, str(e)
 
     def set_username(self, username):
+        """
+                 set_username(): To set username in username field
+                 :return: ret,err
+        """
         try:
             self.driver.find_element("id", self.locator_data['textbox_username_id']).clear()
             self.driver.find_element("id", self.locator_data['textbox_username_id']).send_keys(username)
@@ -27,6 +35,10 @@ class LoginPage:
             return -1, str(e)
 
     def set_password(self, password):
+        """
+                 set_password(): To set password in password field
+                 :return: ret,err
+        """
         try:
             self.driver.find_element("id", self.locator_data['textbox_password_id']).clear()
             self.driver.find_element("id", self.locator_data['textbox_password_id']).send_keys(password)
@@ -35,6 +47,10 @@ class LoginPage:
             return -1, str(e)
 
     def click_login(self):
+        """
+                 click_login(): To click login button
+                 :return: ret,err
+        """
         try:
             self.driver.find_element("id", self.locator_data['button_login_id']).click()
             time.sleep(2)
@@ -43,6 +59,10 @@ class LoginPage:
             return -1, str(e)
 
     def verify_login(self):
+        """
+                 verify_login(): To Verify the login is successful or not by checking on login-error section
+                 :return: ret,err
+        """
         try:
             login_failure = self.driver.find_element("id", self.locator_data['div_login_error_id']).text
             return -1, login_failure

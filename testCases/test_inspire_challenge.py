@@ -18,8 +18,8 @@ import os
 
 class TestInspire:
     input_data = ReadData().read_input_json_data()
-    logger,base_log_dir = LogGen.logGen()
-    input_data['screenshot_url'] =  LogGen.screenshotGen(base_log_dir)
+    logger,base_log_dir = LogGen.generate_log_handle()
+    input_data['screenshot_url'] =  LogGen.generate_screenshot_dir(base_log_dir)
 
     def test_create_post_001(self, setup):
         '''

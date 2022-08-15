@@ -15,6 +15,10 @@ class HomePage:
         self.driver = driver
 
     def click_sort_new_post(self):
+        """
+                 click_sort_new_post(): To sort by latest posts by clicking new button
+                 :return: ret,err
+        """
         try:
             self.driver.find_element("id", self.locator_data['button_new_post_id']).click()
             time.sleep(2)
@@ -23,6 +27,10 @@ class HomePage:
             return -1, str(e)
 
     def traverse_post(self, username, title, description):
+        """
+               traverse_post(): To traverse through the posts to match the expected data and actual data
+               :return: ret,err
+        """
         try:
             elements = self.driver.find_elements("xpath", self.locator_data['section_post_elements_xpath'])
             check_matched = False
@@ -32,8 +40,9 @@ class HomePage:
                 if username in feed_data and title in feed_data:
                     if "Read more" in feed_data:
                         read_more = \
-                        self.driver.find_elements("xpath", self.locator_data['div_post_elements_description_xpath'])[
-                            i - index]
+                            self.driver.find_elements("xpath",
+                                                      self.locator_data['div_post_elements_description_xpath'])[
+                                i - index]
                         self.driver.execute_script('arguments[0].click()', read_more)
                     if description in elements[i].text:
                         check_matched = True

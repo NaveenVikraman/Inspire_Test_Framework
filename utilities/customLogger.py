@@ -6,7 +6,11 @@ from utilities.readData import ReadData
 
 class LogGen:
     @staticmethod
-    def logGen():
+    def generate_log_handle():
+        """
+                generate_log_handle(): To setup the logger
+                :return: data - log handler and base_log_dir
+        """
         time_stamp = datetime.datetime.now().timestamp()
         base_log_dir = ReadData().read_file_location_data()["logging_dir"] + str(time_stamp)
         if not os.path.exists(base_log_dir):
@@ -22,10 +26,15 @@ class LogGen:
             ])
         logger = logging.getLogger()
         logger.root.setLevel(logging.INFO)
-        return logger,base_log_dir
+        return logger, base_log_dir
+
     @staticmethod
-    def screenshotGen(base_log_dir):
-        screenshots_dir = base_log_dir +"/Screenshots/"
+    def generate_screenshot_dir(base_log_dir):
+        """
+                generate_screenshot_dir(): To setup the screenshot directory under base log directory
+                :return: data - screenshot directory
+        """
+        screenshots_dir = base_log_dir + "/Screenshots/"
         if not os.path.exists(screenshots_dir):
             os.makedirs(screenshots_dir)
         return screenshots_dir
