@@ -12,7 +12,7 @@ class LogGen:
                 :return: data - log handler and base_log_dir
         """
         time_stamp = datetime.datetime.now().timestamp()
-        base_log_dir = ReadData().read_file_location_data()["logging_dir"] + str(time_stamp)
+        base_log_dir = os.getcwd() + ReadData().read_file_location_data()["logging_dir"] + str(time_stamp)
         if not os.path.exists(base_log_dir):
             os.makedirs(base_log_dir)
         logging.basicConfig(

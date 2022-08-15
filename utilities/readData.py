@@ -1,4 +1,5 @@
 import json
+import os
 
 
 class ReadData:
@@ -11,7 +12,7 @@ class ReadData:
             read_file_location_data(): To get all the file location data
             :return: data - file location data
         """
-        self.json_path = "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/utilities/file_location.json"
+        self.json_path = os.getcwd() + "/utilities/file_location.json"
         with open(self.json_path, 'r') as j:
             self.data = json.loads(j.read())
         return self.data
@@ -21,7 +22,7 @@ class ReadData:
                read_input_json_data(): To get all the input json data
                :return: data - input json data
         """
-        self.json_path = self.read_file_location_data()['input_json']
+        self.json_path =  os.getcwd() + self.read_file_location_data()['input_json']
         with open(self.json_path, 'r') as j:
             self.data = json.loads(j.read())
         return self.data
@@ -31,7 +32,7 @@ class ReadData:
                read_locator_json_data(): To get all the locator  data
                :return: data - locator data
         """
-        self.json_path = self.read_file_location_data()['locator_data_json']
+        self.json_path = os.getcwd() + self.read_file_location_data()['locator_data_json']
         with open(self.json_path, 'r') as j:
             self.data = json.loads(j.read())
         return self.data

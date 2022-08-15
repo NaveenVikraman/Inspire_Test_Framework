@@ -1,6 +1,6 @@
 {
-  "input_json": "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/utilities/input_data.json",
-  "locator_data_json": "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/utilities/locator_data.json",
-  "logging_dir": "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/Logs/",
-  "screenshot_url": "/Users/Naveen/PycharmProjects/Inspire_Test_Framework/Screenshots/"
+  "input_json": "/utilities/input_data.json",
+  "locator_data_json": "/utilities/locator_data.json",
+  "logging_dir": "/Logs/",
+  "screenshot_url": "/Screenshots/"
 }
